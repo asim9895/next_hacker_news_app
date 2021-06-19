@@ -1,7 +1,9 @@
 import Link from 'next/Link';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 
 const Layout = ({ children, title, description }) => {
+  let router = useRouter();
   return (
     <>
       <div className='container'>
@@ -10,6 +12,15 @@ const Layout = ({ children, title, description }) => {
           <meta name='description' content={description} />
         </Head>
         <nav>
+          <span
+            style={{
+              fontSize: '0.9rem',
+              paddingRight: '1em',
+              cursor: 'pointer',
+            }}
+            onClick={() => router.back()}>
+            {'<'}
+          </span>
           <Link href='/'>
             <a>
               <span className='main-title'>Hacker News</span>
